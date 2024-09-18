@@ -25,4 +25,13 @@ public class FileManager {
         return originalText.toString();
     }
 
+    public void writeFile (String text, String writFilePath) {
+
+        Path filePath = Path.of(writFilePath);
+        try (BufferedWriter writer = Files.newBufferedWriter(filePath)) {
+            writer.write(text);
+        } catch (IOException e) {
+            throw new FileException(e.getMessage(), e);
+        }
+    }
 }
