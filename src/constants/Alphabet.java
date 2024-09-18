@@ -1,5 +1,7 @@
 package constants;
 
+import exceptions.AlphabetException;
+
 import java.util.*;
 
 public class Alphabet {
@@ -21,6 +23,9 @@ public class Alphabet {
     }
 
     public Character getSymbolByIndex(int index) {
+        if (index < 0 || index > alphabet.size()) {
+            throw new AlphabetException("Wrong index " + index + " it should be between 0 and " + alphabet.size());
+        }
             return alphabet.get(index);
     }
 
