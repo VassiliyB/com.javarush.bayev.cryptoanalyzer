@@ -12,7 +12,6 @@ public class CaesarCipher {
             if(index != -1) {
                 int shiftIndex = (index + key) % alphabet.getSize();
                 shiftIndex = (shiftIndex + alphabet.getSize()) % alphabet.getSize();
-                System.out.println(shiftIndex);
                 newText.append(alphabet.getSymbolByIndex(shiftIndex));
             } else {
                 newText.append(ch);
