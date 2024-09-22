@@ -25,8 +25,9 @@ public class CaesarCipher {
         return coding(text.toLowerCase(), intKey);
     }
 
-    public String decode (String text, int key) {
-        return coding(text.toLowerCase(), -key); // Хорошо ли здесь приводить текст к нижнему регистру?
+    public String decode (String text, String key) {
+        int intKey = Integer.parseInt(key);
+        return coding(text.toLowerCase(), -intKey); // Хорошо ли здесь приводить текст к нижнему регистру?
     }                                            // Или это нужно делать в другом месте?
 
 }

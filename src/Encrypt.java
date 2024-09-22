@@ -18,7 +18,7 @@ public class Encrypt {
         System.out.println("Введите абсолютный путь к файлу который хотите закодировать: ");
         while (true) {
             inputFilePath = console.nextLine();
-            if (!validator.isFileExists(inputFilePath.trim()) || inputFilePath.isBlank()) {
+            if (validator.isFileExists(inputFilePath.trim()) || inputFilePath.isBlank()) {
                 System.out.println();
                 System.out.println("Указанный пуль неверный, введите еще раз");
             } else {
@@ -33,13 +33,14 @@ public class Encrypt {
             System.out.println();
             System.out.println("Введите ключ шифрования (он должен быть цифрой): ");
             key = console.nextLine();
-        } while (!validator.isValidKey(key));
+        } while (validator.isValidKey(key));
 
         System.out.println();
         System.out.println("-----------------------------------------------------------------");
 
         System.out.println();
         System.out.println("Введите абсолютный путь к файлу в который будет сохранен зашифрованный текст: ");
+
         while (true) {
             outputFilePath = console.nextLine();
             if(validator.isPathValid(outputFilePath)) {

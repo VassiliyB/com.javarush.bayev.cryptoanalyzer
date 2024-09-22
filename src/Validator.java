@@ -1,5 +1,4 @@
 import java.nio.file.Files;
-import java.nio.file.InvalidPathException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -13,11 +12,11 @@ public class Validator {
         } catch (NumberFormatException e) {
             System.out.println("Введенные данные не являются числом. Попробуйте еще раз.");
         }
-        return isValid;
+        return !isValid;
     }
 
     public boolean isFileExists(String inputFile) {
-        return Files.exists(Paths.get(inputFile));
+        return !Files.exists(Paths.get(inputFile));
     }
 
 
