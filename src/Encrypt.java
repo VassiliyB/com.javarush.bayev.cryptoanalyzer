@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 
 public class Encrypt {
@@ -12,36 +13,42 @@ public class Encrypt {
     public void process() {
         String inputText;
         String encryptText;
+
+        System.out.println();
+        System.out.println("Введите абсолютный путь к файлу который хотите закодировать: ");
         while (true) {
-            System.out.println("Введите абсолютный путь к файлу который хотите закодировать: ");
             inputFilePath = console.nextLine();
-            if (!validator.isFileExists(inputFilePath)) {
-                System.out.println("Указанный пуль неверный");
+            if (!validator.isFileExists(inputFilePath.trim()) || inputFilePath.isBlank()) {
+                System.out.println();
+                System.out.println("Указанный пуль неверный, введите еще раз");
             } else {
                 inputText = fileManager.readFile(inputFilePath);
+                System.out.println("Файл успешно прочитан.");
+                System.out.println("-----------------------------------------------------------------");
                 break;
             }
         }
 
         do {
+            System.out.println();
             System.out.println("Введите ключ шифрования (он должен быть цифрой): ");
             key = console.nextLine();
-
         } while (!validator.isValidKey(key));
 
+        System.out.println();
+        System.out.println("-----------------------------------------------------------------");
+
+        System.out.println();
         System.out.println("Введите абсолютный путь к файлу в который будет сохранен зашифрованный текст: ");
-        outputFilePath = console.nextLine();
-
-
-
-
-
-
-        if (validator.isValidKey(key)) {
-            encryptText = cipher.encode(inputText, key);
-            fileManager.writeFile(encryptText, outputFilePath);
-        } else {
-            System.out.println("ключ не является цифрой");
+        while (true) {
+            outputFilePath = console.nextLine();
+            if(validator.isPathValid(outputFilePath)) {
+                encryptText = cipher.encode(inputText, key);
+                fileManager.writeFile(encryptText, outputFilePath);
+                break;
+            } else {
+                System.out.println("путь некорректен, введите еще раз ");
+            }
         }
     }
 }

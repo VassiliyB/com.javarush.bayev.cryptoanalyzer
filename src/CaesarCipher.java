@@ -20,12 +20,13 @@ public class CaesarCipher {
         return newText.toString();
     }
 
-    public String encode (String text, int key) {
-        return coding(text.toLowerCase(), key);
+    public String encode (String text, String key) {
+        int intKey = Integer.parseInt(key);
+        return coding(text.toLowerCase(), intKey);
     }
 
     public String decode (String text, int key) {
-        return coding(text.toLowerCase(), -key);
-    }
+        return coding(text.toLowerCase(), -key); // Хорошо ли здесь приводить текст к нижнему регистру?
+    }                                            // Или это нужно делать в другом месте?
 
 }
