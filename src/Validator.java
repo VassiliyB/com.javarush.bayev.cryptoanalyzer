@@ -19,8 +19,6 @@ public class Validator {
         return !Files.exists(Paths.get(inputFile));
     }
 
-
-
     public boolean isPathValid(String pathStr) {
         try {
             Path path = Paths.get(pathStr);

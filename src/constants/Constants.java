@@ -10,4 +10,13 @@ public class Constants {
     public final String SEPARATOR = "-".repeat(80);
     public final String SUCCESSFULLY_READ = "Файл успешно прочитан.";
     public final String SUCCESSFULLY_WRITE = "Файл успешно записан.";
+    public final String INVALID_VALUE = "Введено некорректное значение, попробуйте еще раз.\n";
+    public final String MENU_TEXT = """
+                    
+                    Выберете действие, и укажите его номер:\s
+                    1. Кодирование
+                    2. Декодирование
+                    3. Выход
+                    
+                    """;
 }

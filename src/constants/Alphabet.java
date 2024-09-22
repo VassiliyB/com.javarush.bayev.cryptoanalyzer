@@ -24,7 +24,7 @@ public class Alphabet {
 
     public Character getSymbolByIndex(int index) {
         if (index < 0 || index > alphabet.size()) {
-            throw new AlphabetException("Wrong index " + index + " it should be between 0 and " + alphabet.size());
+            throw new AlphabetException("Неверный индекс" + index + " индекс должен быть а диапазоне от 0 до " + alphabet.size());
         }
             return alphabet.get(index);
     }
